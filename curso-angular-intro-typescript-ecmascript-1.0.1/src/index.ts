@@ -1,33 +1,34 @@
 /*
     ===== Código de TypeScript =====
 */
-interface SuperHeroe {
-    nombre: String;
-    edad: number;
-    direccion: {
-      calle: string;
-      pais: string;
-      ciudad: string;
-    };
-    mostrarDireccion: () => string;
-  }
-  
-  const superHeroe: SuperHeroe = {
-    nombre: "Spiderman",
-    edad: 30,
-    direccion: {
-      calle: "Main St",
-      pais: "USA",
-      ciudad: "NY",
-    },
-    mostrarDireccion() {
-      return (
-        this.nombre + ", " + this.direccion.ciudad + ", " + this.direccion.pais
-      );
-    },
-  };
-  
-  // const direccion = superHeroe.mostrarDireccion();
-  // console.log(direccion);
-  
-  superHeroe.mostrarDireccion();
+//DESESTRUCTURACION DE ARGUMENTOS
+
+interface Producto {
+  desc: string;
+  precio: number;
+}
+
+const telefono: Producto = {
+  desc: "Nokia A1",
+  precio: 150,
+};
+
+const tableta: Producto = {
+  desc: "iPad Air",
+  precio: 350,
+};
+
+function calculaISV(productos: Producto[]) {
+  //ISV = Impuestos sobre ventas
+
+  let total = 0;
+
+  productos.forEach((producto) => {
+    total += producto.precio;
+  });
+
+  return total * 0.15;
+}
+
+const articulos = [telefono, tableta];
+const isv = calculaISV(articulos);
