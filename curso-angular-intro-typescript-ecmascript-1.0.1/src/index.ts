@@ -1,34 +1,25 @@
 /*
     ===== Código de TypeScript =====
 */
-//DESESTRUCTURACION DE ARGUMENTOS
 
-interface Producto {
-  desc: string;
-  precio: number;
+class Heroe {
+  alterEgo: String;
+  edad: number;
+  nombreReal: number;
+
+  constructor(alterEgo: string) {
+    this.alterEgo = alterEgo;
+  }
 }
 
-const telefono: Producto = {
-  desc: "Nokia A1",
-  precio: 150,
-};
-
-const tableta: Producto = {
-  desc: "iPad Air",
-  precio: 350,
-};
-
-function calculaISV(productos: Producto[]) {
-  //ISV = Impuestos sobre ventas
-
-  let total = 0;
-
-  productos.forEach((producto) => {
-    total += producto.precio;
-  });
-
-  return total * 0.15;
+//Forma corta de declarar una clase
+class HeroeFormaCorta {
+  constructor(
+    alterEgo: string,
+    edad: number,
+    nombreReal: number
+  ) { }
 }
 
-const articulos = [telefono, tableta];
-const isv = calculaISV(articulos);
+const ironman = new Heroe('Ironman');
+console.log(ironman);
